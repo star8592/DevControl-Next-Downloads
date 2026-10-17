@@ -12,6 +12,14 @@ This is a **public distribution-only repository**. Private DevControl Next sourc
 irm https://raw.githubusercontent.com/star8592/DevControl-Next-Downloads/main/install.ps1 | iex
 ```
 
+**Windows Git fallback**, when `raw.githubusercontent.com` cannot resolve (CMD, Git for Windows required):
+
+```bat
+git clone --depth 1 -b upload/windows-preview-r1 https://github.com/star8592/DevControl-Next-Downloads.git "%TEMP%\dcn-next" && powershell -NoProfile -ExecutionPolicy Bypass -File "%TEMP%\dcn-next\install-local.ps1"
+```
+
+The fallback's local installer has been exercised on a real Windows QA machine (install, status, uninstall), with the existing single-user task unchanged.
+
 **Linux x86_64** (no sudo, Docker or Node.js required):
 
 ```bash
