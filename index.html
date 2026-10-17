@@ -38,7 +38,9 @@ ol{padding-left:22px;color:#476279}footer{padding:20px;color:#6e8393;text-align:
 <pre>curl -fsSL https://raw.githubusercontent.com/star8592/DevControl-Next-Downloads/main/install.sh | bash</pre>
 <p>Android（已连接 USB 调试、安装 ADB 的电脑）</p>
 <pre>curl -fsSL https://raw.githubusercontent.com/star8592/DevControl-Next-Downloads/main/install-android.sh | bash</pre>
-<p>部分 Windows 网络可能无法访问 <code>raw.githubusercontent.com</code>；此时请先下载 Windows ZIP、校验 SHA-256，再运行包内的 <code>scripts/install_next_windows_agent.ps1</code>。不建议绕过校验。</p>
+<p>如果 Windows 网络无法解析 <code>raw.githubusercontent.com</code>，可以在 <b>CMD 命令提示符</b> 使用下面这一条 Git 备用命令（需要安装 Git for Windows，已通过 Windows 真机安装/卸载测试）：</p>
+<pre>git clone --depth 1 -b upload/windows-preview-r1 https://github.com/star8592/DevControl-Next-Downloads.git "%TEMP%\dcn-next" &amp;&amp; powershell -NoProfile -ExecutionPolicy Bypass -File "%TEMP%\dcn-next\install-local.ps1"</pre>
+<p>该命令克隆只包含公开预览二进制的独立分支，先核验 SHA-256 再安装，绝不覆盖单用户 Agent。</p>
 </section>
 <section class="section"><h3>首次连接流程</h3><ol>
 <li>选择平台并执行安装命令（当前为 QA 预览包）。</li>
